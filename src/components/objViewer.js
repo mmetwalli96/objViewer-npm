@@ -8,7 +8,7 @@ import { ScaleLoader } from "react-spinners";
 
 const OrbitControls = OrbitControlsModule(THREE);
 
-export default function OBJViewer(props) {
+function OBJViewer(props) {
   const {
     url,
     file,
@@ -20,10 +20,22 @@ export default function OBJViewer(props) {
     onSceneRendered,
     sceneClassName,
   } = props;
-  return {
-      
-  };
-}
+
+  return (
+    <div
+      className={props.className}
+      style={{
+        width: width,
+        height: height,
+        backgroundColor: backgroundColor,
+      }}
+    >
+      <text>Hello World</text>
+      </div>
+  );
+
+
+};
 
 OBJViewer.propTypes = {
   className: PropTypes.string,
@@ -36,3 +48,14 @@ OBJViewer.propTypes = {
   sceneClassName: PropTypes.string,
   onSceneRendered: PropTypes.func,
 };
+
+OBJViewer.defaultProps = {
+  backgroundColor: '#EAEAEA',
+  modelColor: '#B92C2C',
+  height: 400,
+  width: 400,
+  orbitControls: true,
+  sceneClassName: '',
+};
+
+export default OBJViewer;
