@@ -9,7 +9,20 @@ import { ScaleLoader } from "react-spinners";
 const OrbitControls = OrbitControlsModule(THREE);
 
 export default function OBJViewer(props) {
-  return {};
+  const {
+    url,
+    file,
+    width,
+    height,
+    modelColor,
+    backgroundColor,
+    orbitControls,
+    onSceneRendered,
+    sceneClassName,
+  } = props;
+  return {
+      
+  };
 }
 
 OBJViewer.propTypes = {
@@ -21,5 +34,5 @@ OBJViewer.propTypes = {
   backgroundColor: PropTypes.string,
   modelColor: PropTypes.string,
   sceneClassName: PropTypes.string,
-  onSceneRendered: PropTypes.func
+  onSceneRendered: PropTypes.func,
 };
