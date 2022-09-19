@@ -19,11 +19,30 @@ function OBJViewer(props) {
     orbitControls,
     onSceneRendered,
     sceneClassName,
+    className,
   } = props;
+
+  let camera, scene, renderer, controls;
+  let xDims, yDims, zDims;
+
+  camera = new THREE.PerspectiveCamera(30, width / height, 1, 10000);
+  scene = new THREE.Scene();
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  directionalLight.position.x = 0;
+  directionalLight.position.y = 1;
+  directionalLight.position.z = 0;
+  directionalLight.position.normalize();
+  scene.add(directionalLight);
+
+  const ambientLight = new THREE.AmbientLight(0x404040)
+
+  scene.add(ambientLight);
+  scene.add(camera);
 
   return (
     <div
-      className={props.className}
+      className={className}
       style={{
         width: width,
         height: height,
@@ -31,7 +50,7 @@ function OBJViewer(props) {
       }}
     >
       <text>Hello World</text>
-      </div>
+    </div>
   );
 
 
